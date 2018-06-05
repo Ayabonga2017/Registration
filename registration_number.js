@@ -5,24 +5,27 @@ var Type_of_TownElem = document.querySelector(".Type_of_Town");
 
 
 var NameStorage = localStorage.getItem('Names') ? JSON.parse(localStorage.getItem('Names')) : {};
-function Registration(NameStorage) {
-  var CheckTown = document.querySelector("input[name='TownType']:checked");
-  if (CheckTown) {
-    var language = CheckTown.value;
-  }
-  var person = InpuRegElement.value;
-  RegNameDisplayElement.innerHTML = person;
-  localStorage.setItem("Names", JSON.stringify(person));
 
-  var StoredReg = document.getElementById('regN').value ;
-    document.body.append(StoredReg);
+function Registration() {
+
+  var person = InpuRegElement.value;
+  var TextNode = document.createTextNode(person);
+  var list = document.createElement("LI");
+  list.appendChild(TextNode);
+
+
+  RegNameDisplayElement.innerHTML = person;
+  document.getElementById("regN").appendChild(list);
+  localStorage.setItem("Names", JSON.stringify(person));
 
   if (person === "") {
 
     return RegNameDisplayElement.innerHTML = "Please enter a Registration Number";
+
   }
 }
 
 AddbtnElement.addEventListener('click', function() {
-Registration();
+  Registration();
+
 });
