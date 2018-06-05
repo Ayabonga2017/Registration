@@ -8,14 +8,12 @@ var NameStorage = localStorage.getItem('Names') ? JSON.parse(localStorage.getIte
 
 function Registration() {
 
-  var person = InpuRegElement.value;
+  var person = InpuRegElement.value
+  RegNameDisplayElement.innerHTML = person;
   var TextNode = document.createTextNode(person);
   var list = document.createElement("LI");
   list.appendChild(TextNode);
-
-
-  RegNameDisplayElement.innerHTML = person;
-  document.getElementById("regN").appendChild(list);
+  document.getElementById("regN");
   localStorage.setItem("Names", JSON.stringify(person));
 
   if (person === "") {
