@@ -10,7 +10,7 @@ var upperCase = document.getElementsByTagName('Input')[0]
 upperCase.oninput = function() {
   upperCase.value = upperCase.value.toUpperCase();
 }
-document.body.onload = Registration;
+
 
 var logic=RegistrationLogic();
 
