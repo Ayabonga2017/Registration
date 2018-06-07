@@ -27,7 +27,7 @@ describe("Registration numbers from different Towns", function() {
 
         // returns everything for CY...
         RegNumber.addRegNumber("CY");
-        assert.deepEqual(RegNumber.myMap(), {"CY 124": 0, "CY 234": 0 });
+        assert.equal(RegNumber.myMap(), {"CY 124": 0, "CY 234": 0 });
 
   })
 
