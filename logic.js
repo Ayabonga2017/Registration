@@ -2,7 +2,7 @@ function RegistrationLogic() {
 
   var registration = "";
  var regCode = ("CA" , "CY", "CA");
-
+ var = RegistrationReturns= "";
 
   function WhichTown(registration) {
 
