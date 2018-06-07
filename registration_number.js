@@ -4,7 +4,7 @@ var RegNameDisplayElement = document.querySelector(".RegNameDisplay");
 var Type_of_TownElem = document.querySelector(".Type_of_Town");
 
 
-var RegistratinNumber = localStorage.getItem('Regs') ? JSON.parse(localStorage.getItem('Regs')) : {};
+var RegistratinNumber = localStorage.getItem('Registrations')
 
 var upperCase = document.getElementsByTagName('Input')[0]
 upperCase.oninput = function() {
@@ -12,9 +12,15 @@ upperCase.oninput = function() {
 }
 document.body.onload = Registration;
 
+var logic=RegistrationLogic();
+
 function Registration () {
 
-  var currentDiv = document.getElementById("myUL");
+  var TypeTown = document.querySelector("input[name='TownType']:checked");
+if (TypeTown) {
+  var TownRadio = TypeTown.value;
+}
+
   // create a new div element
  var newDiv = document.createElement("div");
    // and give it some content
@@ -24,11 +30,21 @@ var newContent = document.createTextNode(InpuRegElement.value);
   //add the newly created element and its content into the DOM
   document.body.appendChild(newDiv);
 
-  if (newContent === "") {
 
-    return RegNameDisplayElement.innerHTML = "Please enter a Registration Number";
+  // if (InpuRegElement.value === "") {
+  //
+  //   return RegNameDisplayElement.innerHTML = "Please enter a Registration number";
+  // }
+  // //if (!TypeTown) {
+  //   return RegNameDisplayElement.innerHTML = "Please select TownRadio";
+  // }
+
+
+
+  if (InpuRegElement.value === logic.regCheck() ) {
+
+    return RegNameDisplayElement.innerHTML = "Please enter a correct Registration number";
   }
-
 }
 
 AddbtnElement.addEventListener('click', function() {
@@ -38,6 +54,6 @@ AddbtnElement.addEventListener('click', function() {
 
   var newContent = InpuRegElement.value
   RegNameDisplayElement.innerHTML = newContent;
-  localStorage['Regs'] = JSON.stringify(newContent);
+  localStorage.setItem("Registrations", JSON.stringify(newContent));
 
 });
