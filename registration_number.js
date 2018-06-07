@@ -10,10 +10,6 @@ var upperCase = document.getElementsByTagName('Input')[0]
 upperCase.oninput = function() {
   upperCase.value = upperCase.value.toUpperCase();
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 531b9f8ab62266fde5ce3f1cc2717c52b9cbb42f
 
 var logic=RegistrationLogic(storeRegNumbers);
 
@@ -41,8 +37,6 @@ var newContent = document.createTextNode(InpuRegElement.value);
 
 AddbtnElement.addEventListener('click', function() {
   Registration();
-
-
 
 
 });

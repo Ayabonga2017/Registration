@@ -9,4 +9,5 @@ try to add this regnumber to the Map - using the FacFunc
 if the FacFunc return false - don't add it to the DOM
 if the FacFunc return true - add it to the DOM
 
+
 For filtering...?!

@@ -14,6 +14,8 @@ function RegistrationLogic(storeRegNumbers) {
 
       }
     }
+
+
     // return true if addded
     if (regNumberMap === regNumber) {
 
@@ -32,6 +34,22 @@ function RegistrationLogic(storeRegNumbers) {
     return registration;
   }
 
+
+  function filter (value) {
+    var searchdata =[];
+     var numberPlates = Object.keys(regNumberMap);
+    if (value != '') {
+   for (var i = 0; i < numberPlates.length; i++) {
+      if(numberPlates[i].startsWith(value)){
+         searchdata.push(numberPlates[i]);
+      }
+   }
+
+    }
+    console.log(searchdata);
+     return searchdata;
+  }
+
   function myMap() {
 
     return regNumberMap;
@@ -41,6 +59,7 @@ function RegistrationLogic(storeRegNumbers) {
   return {
     addRegNumber,
     myMap,
-    regNumbers
+    regNumbers,
+    filter
   }
 }
