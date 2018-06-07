@@ -1,0 +1,12 @@
+when you add - you should check if the value is in the map
+
+if it is not in the map -> it should add it to the map -> return true
+if it is in the map -> it should return false
+
+someone enters a reg number...
+get the reg number from the DOM
+try to add this regnumber to the Map - using the FacFunc
+if the FacFunc return false - don't add it to the DOM
+if the FacFunc return true - add it to the DOM
+
+For filtering...?!

@@ -4,15 +4,14 @@ var RegNameDisplayElement = document.querySelector(".RegNameDisplay");
 var Type_of_TownElem = document.querySelector(".Type_of_Town");
 
 
-var RegistratinNumber = localStorage.getItem('Registrations')
+var storeRegNumbers = localStorage.getItem('storeRegNumbers')
 
 var upperCase = document.getElementsByTagName('Input')[0]
 upperCase.oninput = function() {
   upperCase.value = upperCase.value.toUpperCase();
 }
-document.body.onload = Registration;
 
-var logic=RegistrationLogic();
+var logic=RegistrationLogic(storeRegNumbers);
 
 function Registration () {
 
@@ -31,29 +30,15 @@ var newContent = document.createTextNode(InpuRegElement.value);
   document.body.appendChild(newDiv);
 
 
-  // if (InpuRegElement.value === "") {
-  //
-  //   return RegNameDisplayElement.innerHTML = "Please enter a Registration number";
-  // }
-  // //if (!TypeTown) {
-  //   return RegNameDisplayElement.innerHTML = "Please select TownRadio";
-  // }
-
-
-
-  if (InpuRegElement.value === logic.regCheck() ) {
-
-    return RegNameDisplayElement.innerHTML = "Please enter a correct Registration number";
-  }
+    var newContent = InpuRegElement.value
+    RegNameDisplayElement.innerHTML = newContent;
+  localStorage.setItem("storeRegNumbers", JSON.stringify(newContent));
 }
 
 AddbtnElement.addEventListener('click', function() {
-  Registration(newContent);
+  Registration();
 
 
 
-  var newContent = InpuRegElement.value
-  RegNameDisplayElement.innerHTML = newContent;
-  localStorage.setItem("Registrations", JSON.stringify(newContent));
 
 });

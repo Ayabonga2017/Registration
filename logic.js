@@ -1,48 +1,47 @@
-function RegistrationLogic() {
+function RegistrationLogic(storeRegNumbers) {
 
+  var regNumberMap = storeRegNumbers || {};
   var registration = "";
- var regCode = ("CA" , "CY", "CA");
 
 
-  function WhichTown(registration) {
+  // remember the initialize regNumberMap from storeRegNumbers - to support localStorage vertical
+  function addRegNumber(regNumber) {
 
+    for (var i = 0; i < regNumber.length; i++) {
 
-    if (registration === "CK") {
+      if (regNumber[i].startsWith("CA") || regNumber[i].startsWith("CK") || regNumber[i].startsWith("CY") || regNumber[i].startsWith("CAW")) {
 
-      RegistrationReturns = "Malmasbery";
+        regNumberMap[regNumber] = 0;
+
+      }
+    }
+    // return true if addded
+    if (regNumberMap === regNumber) {
+
+      return true;
+    } else {
+
+      // return false if already addded
+      return false;
 
     }
-    if (registration === "CY") {
+  };
 
-      RegistrationReturns = "Bellville";
+  // return all reg numbers already added
+  function regNumbers() {
 
-    }
-    if (registration === "CA") {
-
-      RegistrationReturns = "CapeTown";
-
-    }
-
+    return registration;
   }
-  function regCheck(){
 
+  function myMap() {
 
-  var results=registration.startsWith(regCode);
-  return results;
-};
-
-
-
-  function WhichReg() {
-
-    return RegistrationReturns;
+    return regNumberMap;
   }
 
 
   return {
-
-    WhichTown,
-    WhichReg,
-    regCheck
+    addRegNumber,
+    myMap,
+    regNumbers
   }
 }

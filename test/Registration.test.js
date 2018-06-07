@@ -1,44 +1,34 @@
 describe("Registration numbers from different Towns", function() {
 
-  it("should return Malmasbery CK", function() {
+  it("should return registrations that starts with CY", function() {
 
-    var RegNumber = RegistrationLogic();
+    var RegNumber = RegistrationLogic({
+      "CY 234": 0,
+      // "CA 245": 0,
+      "CY 124": 0,
+      // "CAW 2324": 0
+    });
 
-    RegNumber.WhichTown("CK");
+        // returns everything for CY...
+        RegNumber.addRegNumber("CY");
+        assert.deepEqual(RegNumber.myMap(), {"CY 124": 0, "CY 234": 0 });
 
-    assert.equal("Malmasbery", RegNumber.WhichReg());
+  })
+  })
+  describe("Registration numbers from different Towns", function() {
+  it("should return registration number that starts with CY only", function() {
+
+    var RegNumber = RegistrationLogic({
+      "CY 234": 0,
+       "CA 245": 0,
+      "CY 124": 0,
+       "CAW 2324": 0
+    });
+
+        // returns everything for CY...
+        RegNumber.addRegNumber("CY");
+        assert.deepEqual(RegNumber.myMap(), {"CY 124": 0, "CY 234": 0 });
 
   })
 
-  it("should return Bellville for CY", function() {
-
-    var RegNumber = RegistrationLogic();
-
-    RegNumber.WhichTown("CY");
-
-    assert.equal("Bellville", RegNumber.WhichReg());
-
-  })
-
-  it("should return CapeTown for CA", function() {
-
-    var RegNumber = RegistrationLogic();
-
-    RegNumber.WhichTown("CA");
-
-    assert.equal("CapeTown", RegNumber.WhichReg());
-
-  })
 });
-
-describe("A failing test", function() {
-  it("should not return CapeTown for CK", function() {
-
-    var RegNumber = RegistrationLogic();
-
-    RegNumber.WhichTown("CK");
-
-    assert.equal("CapeTown", RegNumber.WhichReg());
-
-  })
-  })
