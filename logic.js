@@ -1,7 +1,7 @@
 function RegistrationLogic(storeRegNumbers) {
 
   var regNumberMap = storeRegNumbers || {};
-  var registration = "";
+  var regNumber = "";
 
   // remember the initialize regNumberMap from storeRegNumbers - to support localStorage vertical
   function addRegNumber(regNumber) {

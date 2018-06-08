@@ -4,9 +4,8 @@ describe("Registration numbers from different Towns", function() {
 
     var RegNumber = RegistrationLogic({
       "CY 234": 0,
-      // "CA 245": 0,
       "CY 124": 0,
-      // "CAW 2324": 0
+
     });
 
         // returns everything for CY...

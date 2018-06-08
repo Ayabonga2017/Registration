@@ -2,42 +2,55 @@ var InpuRegElement = document.querySelector(".InputReg");
 var AddbtnElement = document.querySelector(".Addbtn");
 var RegNameDisplayElement = document.querySelector(".RegNameDisplay");
 var Type_of_TownElem = document.querySelector(".Type_of_Town");
+var resetElembtn=document.querySelector(".resetbtn");
 
 
-var storeRegNumbers = localStorage.getItem('storeRegNumbers')
+var storeRegNumbers = localStorage.getItem('RegsEnterd') ? JSON.parse(localStorage.getItem('RegsEnterd')) : {};
+var storage = storeRegNumbers;
 
-var upperCase = document.getElementsByTagName('Input')[0]
-upperCase.oninput = function() {
-  upperCase.value = upperCase.value.toUpperCase();
+var logic = RegistrationLogic(storeRegNumbers);
+
+
+window.addEventListener('load', function() {
+ var  storeKeys =Object.keys(storage);
+for (var i = 0; i < storeKeys.length; i++) {
+  CreateElem(storeKeys[i]);
+}
+});
+
+function CreateElem(regNumbers) {
+
+  // create a new div element
+  var newDiv = document.createElement("div");
+  // and give it some content
+  newDiv.innerHTML = regNumbers;
+  //add the newly created element and its content into the DOM
+  RegNameDisplayElement.appendChild(newDiv);
 }
 
-var logic=RegistrationLogic(storeRegNumbers);
+function addingRegs() {
+  var regEntered = InpuRegElement.value
 
-function Registration() {
+  var alphaNumeric = /^[a-zA-Z0-9]+$/;
 
-  var TypeTown = document.querySelector("input[name='TownType']:checked");
-if (TypeTown) {
-  var TownRadio = TypeTown.value;
-}
+  if (regEntered.match(alphaNumeric)&& regEntered !=="") {
 
+  if (storage[regEntered] === undefined) {
 
- // create a new div element
-var newDiv = document.createElement("div");
-var p = document.getElementById('myUL');
-// and give it some content
-var textNode = document.createTextNode(InpuRegElement.value);
-// add the text node to the newly created div
-newDiv.appendChild(textNode, p);
-//add the newly created element and its content into the DOM
- document.body.appendChild(newDiv);
-console.log(parent.childNodes)
+    storage[regEntered] = 0;
+  }
 
-    var regEntered = InpuRegElement.value
-    RegNameDisplayElement.innerHTML = regEntered;
-  localStorage.setItem("storeRegNumbers", JSON.stringify(logic.addRegNumber()));
+  CreateElem(regEntered);
+  localStorage.setItem("RegsEnterd", JSON.stringify(storage));
+  }
 }
 
 AddbtnElement.addEventListener('click', function() {
-  Registration();
+  addingRegs();
+
+});
+resetElembtn.addEventListener('click', function() {
+localStorage.clear();
+location.reload();
 
 });
