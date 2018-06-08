@@ -10,7 +10,6 @@ var storage = storeRegNumbers;
 
 var logic = RegistrationLogic(storeRegNumbers);
 
-
 window.addEventListener('load', function() {
  var  storeKeys =Object.keys(storage);
 for (var i = 0; i < storeKeys.length; i++) {
@@ -29,11 +28,11 @@ function CreateElem(regNumbers) {
 }
 
 function addingRegs() {
-  var regEntered = InpuRegElement.value
+  var regEntered = InpuRegElement.value.toUpperCase();
 
-  var alphaNumeric = /^[a-zA-Z0-9]+$/;
-
-  if (regEntered.match(alphaNumeric)&& regEntered !=="") {
+  // var alphaNumeric = /^[a-zA-Z0-9]+$/;
+  //
+  // if (regEntered.match(alphaNumeric)&& regEntered !=="") {
 
   if (storage[regEntered] === undefined) {
 
@@ -43,7 +42,7 @@ function addingRegs() {
   CreateElem(regEntered);
   localStorage.setItem("RegsEnterd", JSON.stringify(storage));
   }
-}
+//}
 
 AddbtnElement.addEventListener('click', function() {
   addingRegs();
