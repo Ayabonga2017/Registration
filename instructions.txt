@@ -8,6 +8,32 @@ get the reg number from the DOM
 try to add this regnumber to the Map - using the FacFunc
 if the FacFunc return false - don't add it to the DOM
 if the FacFunc return true - add it to the DOM
-
+You do have to remember to include a return statement in your callback.
+If you don't, you'll get a new array filled with undefined.
+map returns an array with the finished product, rather than requiring us to mutate an array inside the loop.
 
 For filtering...?!
+
+the syntax:
+var newArray = arr.filter(callback(element[, index[, array]])[, thisArg])
+
+ # element - The current element being processed in the array.
+# index- The index of the current element being processed in the array.
+# array- The array filter was called upon.
+# thisArg - the Value to use as this when executing callback.
+
+It takes an array, and filters out unwanted elements.
+It's available on any array, and you pass it a callback as its first argument.
+filter executes that callback on each element of the array,
+and spits out a new array containing only the elements for which the callback returned true
+filter has three arguments like in the map:
+The current item
+The current index
+The array you called filter on
+
+With filter, you also have to include a return statement, and you must make sure it returns a boolean value.
+Always make sure your callbacks include an explicit return statement.
+ And always make sure your callbacks in filter return true or false.
+
+ when filtering two registratrion numbers  that startswith("CA") { eg. CApe Town :CA & George :CAW } remember to put the space on CA,
+ so that it cannot include George on the array that is called upon to filter.

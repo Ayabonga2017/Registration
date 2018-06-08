@@ -15,7 +15,7 @@ describe("Registration numbers from different Towns", function() {
 
   })
   })
-  describe("Registration numbers from different Towns", function() {
+  describe("Registration numbers that are filtered from different Towns", function() {
   it("should return registration number that starts with CY only", function() {
 
     var RegNumber = RegistrationLogic({
@@ -27,7 +27,7 @@ describe("Registration numbers from different Towns", function() {
 
         // returns everything for CY...
         RegNumber.addRegNumber("CY");
-        let foundplates =  RegNumber.filter("CY");
+        var  foundplates =  RegNumber.filter("CY");
         assert.deepEqual(foundplates, ["CY 234", "CY 124"]);
 
   })
@@ -45,7 +45,7 @@ describe("Registration numbers from different Towns", function() {
 
         // returns everything for CY...
         RegNumber.addRegNumber("CK");
-        let foundplates =  RegNumber.filter("CK");
+        var  foundplates =  RegNumber.filter("CK");
         assert.deepEqual(foundplates, ["CK 18484", "CK 124", "CK 15854"]);
 
   })
@@ -62,9 +62,9 @@ describe("Registration numbers from different Towns", function() {
     });
 
         // returns everything for CY...
-        RegNumber.addRegNumber("CA");
-        let foundplates =  RegNumber.filter("CA");
-        assert.deepEqual(foundplates, ["CA 245", "CAW 2324", "CA 124","CA 15854"]);
+        RegNumber.addRegNumber("CA ");
+        var  foundplates =  RegNumber.filter("CA ");
+        assert.deepEqual(foundplates, ["CA 245", "CA 124", "CA 15854"]);
 
   })
 
