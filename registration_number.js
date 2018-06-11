@@ -18,7 +18,6 @@ for (var i = 0; i < storeKeys.length; i++) {
 });
 
 function CreateElem(regNumbers) {
-
   // create a new div element
   var newDiv = document.createElement("div");
   // and give it some content
@@ -61,7 +60,8 @@ function FilterBtn() {
     var listRegs = document.createElement("div");
     var filteredRegs = logic.townFilter(town);
     for (var i = 0; i < filteredRegs.length; i++) {
-      listRegs.innerHTML = filteredRegs[i];
+      CreateElem(filteredRegs[i])
+      // listRegs.innerHTML = filteredRegs[i];
       console.log(filteredRegs[i]);
     }
     //add the newly created element and its content into the DOM
