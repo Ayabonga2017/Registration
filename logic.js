@@ -3,6 +3,8 @@ function RegistrationLogic(storeRegNumbers) {
   var regNumberMap = storeRegNumbers || {};
   var regNumber = "";
 
+
+
   // remember the initialize regNumberMap from storeRegNumbers - to support localStorage vertical
   function addRegNumber(regNumber) {
 
@@ -13,6 +15,7 @@ function RegistrationLogic(storeRegNumbers) {
         regNumberMap[regNumber] = 0;
       }
     }
+
     // return true if addded
     if (regNumberMap === regNumber) {
 
@@ -41,13 +44,57 @@ function RegistrationLogic(storeRegNumbers) {
         }
       }
     }
-    console.log(searchdata);
+    console.log(value);
     return searchdata;
   }
+
+  //filter function for towns that startsWith('').....
+
+  function townFilter(town){
+    var cpt = [];
+    var malmas = [];
+    var bellv =[];
+
+  if (town === "CA") {
+
+    for( var key in regNumberMap)
+    {
+      if (key.startsWith("CA")) {
+        cpt.push(key);
+      }
+    }
+    return cpt;
+    console.log(cpt);
+  }
+
+  if (town === "CK") {
+
+    for( var key in regNumberMap)
+    {
+      if (key.startsWith("CK")) {
+        malmas.push(key);
+      }
+    }
+    return malmas;
+  }
+
+  if (town === "CY") {
+
+    for( var key in regNumberMap)
+    {
+      if (key.startsWith("CY")) {
+        bellv.push(key);
+      }
+    }
+    return bellv;
+  }
+  }
+
 
   return {
     addRegNumber,
     myMap,
-    filter
+    filter,
+    townFilter
   }
 }

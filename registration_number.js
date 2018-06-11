@@ -1,9 +1,9 @@
 var InpuRegElement = document.querySelector(".InputReg");
 var AddbtnElement = document.querySelector(".Addbtn");
+var showbtnElem = document.querySelector(".showbtn");
 var RegNameDisplayElement = document.querySelector(".RegNameDisplay");
 var Type_of_TownElem = document.querySelector(".Type_of_Town");
-var resetElembtn=document.querySelector(".resetbtn");
-
+var resetElembtn = document.querySelector(".resetbtn");
 
 var storeRegNumbers = localStorage.getItem('RegsEnterd') ? JSON.parse(localStorage.getItem('RegsEnterd')) : {};
 var storage = storeRegNumbers;
@@ -46,10 +46,34 @@ function addingRegs() {
 
 AddbtnElement.addEventListener('click', function() {
   addingRegs();
-
 });
+
+//Filter function for which town does the reg number is from...........
+
+function FilterBtn() {
+
+  var checkedTownbtn = document.querySelector("input[name='TownType']:checked");
+  if (checkedTownbtn) {
+    RegNameDisplayElement.innerHTML = '';
+    // logic.addRegNumber()
+    var town = checkedTownbtn.value;
+    // create a new div element
+    var listRegs = document.createElement("div");
+    var filteredRegs = logic.townFilter(town);
+    for (var i = 0; i < filteredRegs.length; i++) {
+      listRegs.innerHTML = filteredRegs[i];
+      console.log(filteredRegs[i]);
+    }
+    //add the newly created element and its content into the DOM
+    RegNameDisplayElement.appendChild(listRegs);
+  }
+}
+showbtnElem.addEventListener('click', function() {
+  FilterBtn();
+});
+
 resetElembtn.addEventListener('click', function() {
-localStorage.clear();
-location.reload();
+  localStorage.clear();
+  location.reload();
 
 });
