@@ -2,21 +2,13 @@
   margin-top: 1em;
   color: aqua;
 }
-.counter{
-  color: red;
 
-}
+ .display ul{
 
-/* .display{
-
-display:inline-block;
-  float: inherit;
-} */
-.display {
-  ...
-  margin:0;
-  padding:0;
-  list-style:none;
+  background-color: lightblue;
+  border: 5px;
+  width: fit-content;
+  margin: bottom;
 }
 div{
   align-items: center;
@@ -32,7 +24,7 @@ body {
 }
 
 .container {
-  width: 1024px;
+  width: 100%;
   margin: auto;
   background-color: ;
   padding: 30%;

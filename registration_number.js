@@ -19,7 +19,7 @@ for (var i = 0; i < storeKeys.length; i++) {
 
 function CreateElem(regNumbers) {
   // create a new div element
-  var newDiv = document.createElement("div");
+  var newDiv = document.createElement("ul");
   // and give it some content
   newDiv.innerHTML = regNumbers;
   //add the newly created element and its content into the DOM
