@@ -10,7 +10,7 @@ function RegistrationLogic(storeRegNumbers) {
 
     for (var i = 0; i < regNumber.length; i++) {
 
-      if (regNumber[i].startsWith("CA ") || regNumber[i].startsWith("CK") || regNumber[i].startsWith("CY") || regNumber[i].startsWith("CAW")) {
+      if (regNumber[i].startsWith("CA ") || regNumber[i].startsWith("CK") || regNumber[i].startsWith("CY") || regNumber[i].startsWith("CAW") || regNumber[i].startsWith("")) {
 
         regNumberMap[regNumber] = 0;
       }
@@ -54,12 +54,14 @@ function RegistrationLogic(storeRegNumbers) {
     var cpt = [];
     var malmas = [];
     var bellv =[];
+    var George= [];
+    var All= [];
 
-  if (town === "CA") {
+  if (town === "CA ") {
 
     for( var key in regNumberMap)
     {
-      if (key.startsWith("CA")) {
+      if (key.startsWith("CA ")) {
         cpt.push(key);
       }
     }
@@ -88,6 +90,29 @@ function RegistrationLogic(storeRegNumbers) {
     }
     return bellv;
   }
+
+  if (town === "CAW") {
+
+    for( var key in regNumberMap)
+    {
+      if (key.startsWith("CAW")) {
+        George.push(key);
+      }
+    }
+    return George;
+  }
+
+
+    if (town === "") {
+
+      for( var key in regNumberMap)
+      {
+        if (key.startsWith("")) {
+          All.push(key);
+        }
+      }
+      return All;
+    }
   }
 
 

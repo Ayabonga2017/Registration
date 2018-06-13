@@ -6,6 +6,18 @@
   color: red;
 
 }
+
+/* .display{
+
+display:inline-block;
+  float: inherit;
+} */
+.display {
+  ...
+  margin:0;
+  padding:0;
+  list-style:none;
+}
 div{
   align-items: center;
 }

@@ -49,17 +49,17 @@ AddbtnElement.addEventListener('click', function() {
 
 //Filter function for which town does the reg number is from...........
 
-function FilterBtn() {
+function FilterBtn(){
 
   var checkedTownbtn = document.querySelector("input[name='TownType']:checked");
-  if (checkedTownbtn) {
+  if (checkedTownbtn){
     RegNameDisplayElement.innerHTML = '';
     // logic.addRegNumber()
     var town = checkedTownbtn.value;
     // create a new div element
     var listRegs = document.createElement("div");
     var filteredRegs = logic.townFilter(town);
-    for (var i = 0; i < filteredRegs.length; i++) {
+    for (var i = 0; i < filteredRegs.length; i++){
       CreateElem(filteredRegs[i])
       // listRegs.innerHTML = filteredRegs[i];
       console.log(filteredRegs[i]);
