@@ -11,37 +11,41 @@ var storage = storeRegNumbers;
 var logic = RegistrationLogic(storeRegNumbers);
 
 window.addEventListener('load', function() {
- var  storeKeys =Object.keys(storage);
-for (var i = 0; i < storeKeys.length; i++) {
-  CreateElem(storeKeys[i]);
-}
+  var storeKeys = Object.keys(storage);
+  for (var i = 0; i < storeKeys.length; i++) {
+    CreateElem(storeKeys[i]);
+  }
 });
 
 function CreateElem(regNumbers) {
   // create a new div element
-  var newDiv = document.createElement("ul");
+  var newDiv = document.createElement("div");
+  newDiv.classList.add("styleDisplay");
   // and give it some content
   newDiv.innerHTML = regNumbers;
   //add the newly created element and its content into the DOM
   RegNameDisplayElement.appendChild(newDiv);
+
 }
 
 function addingRegs() {
-  var regEntered = InpuRegElement.value.toUpperCase();
-
   // var alphaNumeric = /^[a-zA-Z0-9]+$/;
-  //
-  // if (regEntered.match(alphaNumeric)&& regEntered !=="") {
+  var regEntered = InpuRegElement.value.toUpperCase();
+  console.log(regEntered)
 
-  if (storage[regEntered] === undefined) {
+  if (logic.addRegNumber(regEntered)) {
+    CreateElem(regEntered);
+    localStorage.setItem("RegsEnterd", JSON.stringify(logic.myMap()));
+      RegNameDisplayElement.innerHTML = 'succefully add';
 
-    storage[regEntered] = 0;
+  }else {
+    let map = Object.keys(logic.myMap());
+    console.log(map.indexOf(regEntered));
+    map.indexOf(regEntered) != -1 ? RegNameDisplayElement.innerHTML = 'already exist' : RegNameDisplayElement.innerHTML = 'incorect data';
   }
 
-  CreateElem(regEntered);
-  localStorage.setItem("RegsEnterd", JSON.stringify(storage));
-  }
-//}
+}
+// }
 
 AddbtnElement.addEventListener('click', function() {
   addingRegs();
@@ -49,25 +53,27 @@ AddbtnElement.addEventListener('click', function() {
 
 //Filter function for which town does the reg number is from...........
 
-function FilterBtn(){
+function FilterBtn() {
 
   var checkedTownbtn = document.querySelector("input[name='TownType']:checked");
-  if (checkedTownbtn){
+  if (checkedTownbtn) {
     RegNameDisplayElement.innerHTML = '';
     // logic.addRegNumber()
     var town = checkedTownbtn.value;
     // create a new div element
-    var listRegs = document.createElement("div");
+    var listRegs = document.createElement("span");
     var filteredRegs = logic.townFilter(town);
-    for (var i = 0; i < filteredRegs.length; i++){
+    for (var i = 0; i < filteredRegs.length; i++) {
       CreateElem(filteredRegs[i])
       // listRegs.innerHTML = filteredRegs[i];
       console.log(filteredRegs[i]);
+
     }
-    //add the newly created element and its content into the DOM
-    RegNameDisplayElement.appendChild(listRegs);
   }
+  //add the newly created element and its content into the DOM
+  RegNameDisplayElement.appendChild(listRegs);
 }
+
 showbtnElem.addEventListener('click', function() {
   FilterBtn();
 });

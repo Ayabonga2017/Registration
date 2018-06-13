@@ -1,21 +1,19 @@
 .buttons {
   margin-top: 1em;
   color: aqua;
+
 }
 
- .display ul{
-
-  background-color: lightblue;
-  border: 5px;
-  width: fit-content;
-  margin: bottom;
-}
-div{
-  align-items: center;
-}
-.ul{
-
-  font-size: 30px;
+.styleDisplay{
+    color: ;
+    background-color: yellow;
+    border-radius:50%;
+    border: solid black 5px;
+    width: 250px;
+    margin-top:10px;
+    margin-bottom: 12px;
+    text-align: center;
+    float: left;
 }
 
 body {
@@ -24,7 +22,7 @@ body {
 }
 
 .container {
-  width: 100%;
+  width: 1024px;
   margin: auto;
   background-color: ;
   padding: 30%;
@@ -37,16 +35,7 @@ body {
   font-size: 15px;
 }
 
-.RegNameDisplay {
-  font-size: 20px;
-  padding-left: 30%;
-  /* background-color:Aqua; */
-  color: Purple;
-}
 
-.counter {
-  font-size: 3em;
-}
 .languageTypeRadio{
 color: red;
 }
