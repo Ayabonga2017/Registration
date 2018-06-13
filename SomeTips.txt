@@ -1,3 +1,6 @@
+...............................................................................................................................................
+map
+
 when you add - you should check if the value is in the map
 
 if it is not in the map -> it should add it to the map -> return true
@@ -12,6 +15,8 @@ You do have to remember to include a return statement in your callback.
 If you don't, you'll get a new array filled with undefined.
 map returns an array with the finished product, rather than requiring us to mutate an array inside the loop.
 
+
+..............................................................................................................................................
 For filtering...?!
 
 the syntax:
@@ -34,6 +39,12 @@ The array you called filter on
 With filter, you also have to include a return statement, and you must make sure it returns a boolean value.
 Always make sure your callbacks include an explicit return statement.
  And always make sure your callbacks in filter return true or false.
-
  when filtering two registratrion numbers  that startswith("CA") { eg. CApe Town :CA & George :CAW } remember to put the space on CA,
  so that it cannot include George on the array that is called upon to filter.
+
+..........................................................................................................................................
+ JavaScript String indexOf() Method
+
+ The indexOf() method returns the position of the first occurrence of a specified value in a string.
+This method returns -1 if the value to search for never occurs.
+Use this method so that your registration input does not add the wrong data to your registration list.

@@ -29,7 +29,6 @@ function CreateElem(regNumbers) {
 }
 
 function addingRegs() {
-  // var alphaNumeric = /^[a-zA-Z0-9]+$/;
   var regEntered = InpuRegElement.value.toUpperCase();
   console.log(regEntered)
 
@@ -41,11 +40,10 @@ function addingRegs() {
   }else {
     let map = Object.keys(logic.myMap());
     console.log(map.indexOf(regEntered));
+    
     map.indexOf(regEntered) != -1 ? RegNameDisplayElement.innerHTML = 'already exist' : RegNameDisplayElement.innerHTML = 'incorect data';
   }
-
 }
-// }
 
 AddbtnElement.addEventListener('click', function() {
   addingRegs();
