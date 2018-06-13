@@ -44,6 +44,11 @@ Always make sure your callbacks include an explicit return statement.
 
 ..........................................................................................................................................
  JavaScript String indexOf() Method
+ Syntax
+ string.indexOf(searchvalue, start)
+
+searchvalue	Required. The string to search for
+start	Optional. Default 0. At which position to start the search
 
  The indexOf() method returns the position of the first occurrence of a specified value in a string.
 This method returns -1 if the value to search for never occurs.
