@@ -16,7 +16,6 @@ function RegistrationLogic(storeRegNumbers) {
       return false;
 }
 
-
   // return all reg numbers already added
   function myMap() {
 
@@ -106,11 +105,18 @@ function RegistrationLogic(storeRegNumbers) {
     }
   }
 
+  function Errors() {
+
+    
+
+  }
+
 
   return {
     addRegNumber,
     myMap,
     filter,
-    townFilter
+    townFilter,
+    Errors
   }
 }

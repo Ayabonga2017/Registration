@@ -45,7 +45,7 @@ function addingRegs() {
     let map = Object.keys(logic.myMap());
     console.log(map.indexOf(regEntered));
 
-    map.indexOf(regEntered) != -1 ? errorDisplayElemt.innerHTML = 'already exist' : errorDisplayElemt.innerHTML = 'incorect data';
+    map.indexOf(regEntered) != -1 ? errorDisplayElemt.innerHTML = 'already exist' : errorDisplayElemt.innerHTML = 'incorrect data';
   }
 }
 

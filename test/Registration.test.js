@@ -9,7 +9,7 @@
        "CAW 2324": 0
     });
 
-        // returns every reg from Bellville...
+        // returns every reg from Bellv...
         var  foundplates =  RegNumber.filter("CY");
         assert.deepEqual(foundplates, ["CY 234", "CY 124"]);
 
@@ -86,8 +86,7 @@ it("should return false if the registration does not occur on the Map", function
   var RegNumber = RegistrationLogic();
 
       // returns false for Stellenbosch , because it is not on my Map...
-      var  checkplate =  RegNumber.addRegNumber("CL");
-      assert.deepEqual(checkplate, false);
+      assert.deepEqual(RegNumber.addRegNumber("CL"), false);
 
 })
 it("should return true for George", function() {
