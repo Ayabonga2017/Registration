@@ -2,6 +2,7 @@ var InpuRegElement = document.querySelector(".InputReg");
 var AddbtnElement = document.querySelector(".Addbtn");
 var showbtnElem = document.querySelector(".showbtn");
 var RegNameDisplayElement = document.querySelector(".RegNameDisplay");
+var errorDisplayElemt =document.querySelector(".errorDisplay");
 var Type_of_TownElem = document.querySelector(".Type_of_Town");
 var resetElembtn = document.querySelector(".resetbtn");
 
@@ -29,19 +30,22 @@ function CreateElem(regNumbers) {
 }
 
 function addingRegs() {
+
   var regEntered = InpuRegElement.value.toUpperCase();
+  errorDisplayElemt.innerHTML = ''
   console.log(regEntered)
 
   if (logic.addRegNumber(regEntered)) {
+
     CreateElem(regEntered);
     localStorage.setItem("RegsEnterd", JSON.stringify(logic.myMap()));
-    RegNameDisplayElement.innerHTML = 'succefully add';
+    //RegNameDisplayElement.innerHTML = regEntered;
 
   } else {
     let map = Object.keys(logic.myMap());
     console.log(map.indexOf(regEntered));
 
-    map.indexOf(regEntered) != -1 ? RegNameDisplayElement.innerHTML = 'already exist' : RegNameDisplayElement.innerHTML = 'incorect data';
+    map.indexOf(regEntered) != -1 ? errorDisplayElemt.innerHTML = 'already exist' : errorDisplayElemt.innerHTML = 'incorect data';
   }
 }
 
