@@ -10,7 +10,6 @@
     });
 
         // returns everything for CY...
-        //RegNumber.addRegNumber("CY");
         var  foundplates =  RegNumber.filter("CY");
         assert.deepEqual(foundplates, ["CY 234", "CY 124"]);
 
@@ -27,8 +26,7 @@
         "CK 15854" :0
     });
 
-        // returns everything for CY...
-        //RegNumber.addRegNumber("CK");
+        // returns everything for CK...
         var  foundplates =  RegNumber.filter("CK");
         assert.deepEqual(foundplates, ["CK 18484", "CK 124", "CK 15854"]);
 
@@ -45,8 +43,7 @@
         "CA 15854" :0
     });
 
-        // returns everything for CY...
-        //RegNumber.addRegNumber("CA ");
+        // returns everything for CA ...
         var  foundplates =  RegNumber.filter("CA ");
         assert.deepEqual(foundplates, ["CA 245", "CA 124", "CA 15854"]);
 
@@ -66,8 +63,7 @@
         "CAW 09854" :0
     });
 
-        // returns everything for CY...
-        //RegNumber.addRegNumber("CAW");
+        // returns everything for CAW...
         var  foundplates =  RegNumber.filter("CAW");
         console.log(foundplates);
         assert.deepEqual(foundplates, ["CAW 2324", "CAW 224", "CAW 15854", "CAW 5854", "CAW 09854"]);
