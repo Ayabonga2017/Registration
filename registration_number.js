@@ -10,6 +10,7 @@ var storage = storeRegNumbers;
 
 var logic = RegistrationLogic(storeRegNumbers);
 
+
 window.addEventListener('load', function() {
   var storeKeys = Object.keys(storage);
   for (var i = 0; i < storeKeys.length; i++) {
@@ -25,7 +26,6 @@ function CreateElem(regNumbers) {
   newDiv.innerHTML = regNumbers;
   //add the newly created element and its content into the DOM
   RegNameDisplayElement.appendChild(newDiv);
-
 }
 
 function addingRegs() {
@@ -35,19 +35,15 @@ function addingRegs() {
   if (logic.addRegNumber(regEntered)) {
     CreateElem(regEntered);
     localStorage.setItem("RegsEnterd", JSON.stringify(logic.myMap()));
-      RegNameDisplayElement.innerHTML = 'succefully add';
+    RegNameDisplayElement.innerHTML = 'succefully add';
 
-  }else {
+  } else {
     let map = Object.keys(logic.myMap());
     console.log(map.indexOf(regEntered));
-    
+
     map.indexOf(regEntered) != -1 ? RegNameDisplayElement.innerHTML = 'already exist' : RegNameDisplayElement.innerHTML = 'incorect data';
   }
 }
-
-AddbtnElement.addEventListener('click', function() {
-  addingRegs();
-});
 
 //Filter function for which town does the reg number is from...........
 
@@ -65,19 +61,21 @@ function FilterBtn() {
       CreateElem(filteredRegs[i])
       // listRegs.innerHTML = filteredRegs[i];
       console.log(filteredRegs[i]);
-
+      //add the newly created element and its content into the DOM
+      RegNameDisplayElement.appendChild(listRegs);
     }
   }
-  //add the newly created element and its content into the DOM
-  RegNameDisplayElement.appendChild(listRegs);
-}
+};
 
-showbtnElem.addEventListener('click', function() {
-  FilterBtn();
-});
+  AddbtnElement.addEventListener('click', function() {
+    addingRegs();
+  });
 
-resetElembtn.addEventListener('click', function() {
-  localStorage.clear();
-  location.reload();
+  showbtnElem.addEventListener('click', function() {
+    FilterBtn()
+  });
 
-});
+  resetElembtn.addEventListener('click', function() {
+    localStorage.clear();
+    location.reload();
+  });

@@ -73,26 +73,4 @@
         assert.deepEqual(foundplates, ["CAW 2324", "CAW 224", "CAW 15854", "CAW 5854", "CAW 09854"]);
 
   })
-
-  it("should return registration number that starts with All only from the list", function() {
-
-    var RegNumber = RegistrationLogic({
-      "CY 234": 0,
-       "CA 245": 0,
-      "CK 18484": 0,
-       "CAW 2324": 0,
-       "CA 124": 0,
-        "CAW 224": 0,
-        "CAW 15854" :0,
-        "CAW 5854" :0,
-        "CAW 09854" :0
-    });
-
-        // returns everything for CY...
-        //RegNumber.addRegNumber("CAW");
-        var  foundplates =  RegNumber.filter("CY", "CA", "CK", "CAW");
-        console.log(foundplates);
-        assert.deepEqual(foundplates, ["CY 234", "CA 245", "CK 18484", "CAW 2324", "CA 124", "CAW 224", "CAW 15854", "CAW 5854", "CAW 09854"]);
-
-  })
 });
